@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Làm Việc Công Thái Học - Ergonomic Workspace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.2) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: clamp(2em, 5vw, 4em);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .tagline {
+            font-size: clamp(1em, 2.5vw, 1.4em);
+            color: #b8c5d6;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .intro {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 800px;
+            margin: 30px auto 0;
+            backdrop-filter: blur(10px);
+        }
+        .intro p {
+            color: #d0d8e8;
+            font-size: 1.05em;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8em, 4vw, 2.5em);
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 35px;
+        }
+        .product {
+            background: #151a33;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        .product-img {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+            position: relative;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .product:hover .product-img img {
+            transform: scale(1.1);
+        }
+        .product-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        .product-info {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product h3 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .product p {
+            color: #b8c5d6;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+        .features li {
+            color: #90a4c0;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        .price {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 20px 70px;
+            }
+            .products {
+                gap: 25px;
+            }
+            .product-img {
+                height: 220px;
+            }
+            .product-info {
+                padding: 20px;
+            }
+            .price {
+                font-size: 1.5em;
+            }
+            .buy-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>⚡ ERGONOMIC WORKSPACE</h1>
+            <p class="tagline">Nâng tầm không gian làm việc - Bảo vệ sức khỏe - Tối ưu năng suất</p>
+            <div class="intro">
+                <p>Hơn 70% dân văn phòng gặp vấn đề về đau lưng, mỏi cổ vai do thiết bị làm việc không phù hợp. Chúng tôi mang đến giải pháp công thái học được chứng nhận quốc tế, giúp bạn làm việc hiệu quả 8-10 giờ mà vẫn khỏe mạnh. Đầu tư cho sức khỏe hôm nay, tiết kiệm chi phí y tế mai sau.</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+        <div class="products">
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://congthaihoc.vn/wp-content/uploads/2024/04/a3.webp" alt="Ghế công thái học">
+                    <span class="product-label">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <h3>Ghế Công Thái Học ErgoMax Pro</h3>
+                    <p>Ghế văn phòng cao cấp với thiết kế hỗ trợ đa điểm, điều chỉnh 8 chiều theo chuẩn công thái học Châu Âu. Chất liệu lưới 3D thoáng khí, đệm memory foam cao cấp.</p>
+                    <ul class="features">
+                        <li>Tựa lưng điều chỉnh 135°, hỗ trợ vùng thắt lưng</li>
+                        <li>Tay vịn 4D điều chỉnh linh hoạt</li>
+                        <li>Chịu tải 150kg, bảo hành 5 năm</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">4.990.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://d3cqdcqv9il3c7.cloudfront.net/ban-nang-ha-noble-grande-(1-01K7EDZJ8P6RY3MXH6NGK2RY44.jpg" alt="Bàn nâng hạ">
+                    <span class="product-label">Premium</span>
+                </div>
+                <div class="product-info">
+                    <h3>Bàn Nâng Hạ Tự Động SmartDesk</h3>
+                    <p>Bàn làm việc thông minh với động cơ kép êm ái, điều khiển bằng nút nhấn hoặc app. Nghiên cứu cho thấy làm việc đứng 2-3h/ngày giảm 20% nguy cơ bệnh tim mạch.</p>
+                    <ul class="features">
+                        <li>Nâng hạ 60-125cm, tốc độ 38mm/giây</li>
+                        <li>Bộ nhớ 4 vị trí, cảnh báo va chạm</li>
+                        <li>Mặt bàn gỗ công nghiệp cao cấp 140x70cm</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">8.500.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://genk.mediacdn.vn/139269124445442048/2024/10/11/1280x1280-1728631665499216037764-1728632959541-17286329601281446045433.jpeg" alt="Giá đỡ màn hình">
+                    <span class="product-label">Hot Deal</span>
+                </div>
+                <div class="product-info">
+                    <h3>Giá Đỡ Màn Hình Monitor Arm Pro</h3>
+                    <p>Giá treo màn hình gas spring cao cấp, xoay 360° mượt mà. Giải phóng 40% không gian bàn làm việc, điều chỉnh góc nhìn tối ưu giảm mỏi mắt và đau cổ.</p>
+                    <ul class="features">
+                        <li>Phù hợp màn hình 17-32 inch, tải trọng 2-9kg</li>
+                        <li>Điều chỉnh độ cao, góc nghiêng, xoay đa hướng</li>
+                        <li>Hệ thống cáp ẩn, lắp đặt dễ dàng</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">1.490.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://akia.vn/wp-content/uploads/2022/10/den_kep_man_hinh_yeelight_rgb_pro__4__a8bd07a17b4947bdb5bdc886e554c693_master.jpg" alt="Đèn màn hình">
+                    <span class="product-label">Smart Tech</span>
+                </div>
+                <div class="product-info">
+                    <h3>Đèn Màn Hình Screen Bar Plus</h3>
+                    <p>Đèn LED thông minh treo màn hình, tự động điều chỉnh độ sáng và nhiệt độ màu theo ánh sáng môi trường. Không gây chói, phản chiếu, bảo vệ mắt tối đa.</p>
+                    <ul class="features">
+                        <li>Cảm biến ánh sáng tự động, 500 lux</li>
+                        <li>Nhiệt độ màu 2700K-6500K điều chỉnh</li>
+                        <li>Nguồn USB-C, tiết kiệm điện 80%</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">990.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://muagimuadi.vn/upload_images/images/2024/09/AD_4nXeIrjSVpeX.webp" alt="Kê tay bàn phím">
+                </div>
+                <div class="product-info">
+                    <h3>Bộ Kê Tay Bàn Phím & Chuột Memory Foam</h3>
+                    <p>Đệm kê tay cao cấp với gel mát và memory foam, giảm 60% áp lực lên cổ tay, phòng ngừa hội chứng ống cổ tay (Carpal Tunnel). Bề mặt da PU cao cấp dễ vệ sinh.</p>
+                    <ul class="features">
+                        <li>Thiết kế cong theo công thái học</li>
+                        <li>Đế chống trượt, không di chuyển khi gõ</li>
+                        <li>Phù hợp mọi loại bàn phím và chuột</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">399.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://product.hstatic.net/200000567141/product/rs-cp84-sku2_752ab2c7d2bb4b6d99953b2dda3924f2_master.jpg" alt="Đế laptop">
+                </div>
+                <div class="product-info">
+                    <h3>Giá Đỡ Laptop Điều Chỉnh Độ Cao</h3>
+                    <p>Đế laptop nhôm nguyên khối với 6 mức độ cao, nâng màn hình lên tầm mắt. Tản nhiệt tuyệt vời với thiết kế lỗ thoáng, kéo dài tuổi thọ máy tính.</p>
+                    <ul class="features">
+                        <li>Tương thích laptop 10-17 inch</li>
+                        <li>Gấp gọn, trọng lượng chỉ 280g</li>
+                        <li>Chống trượt, chịu lực đến 10kg</li>
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">549.000đ</div>
+                        <button class="buy-btn">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
