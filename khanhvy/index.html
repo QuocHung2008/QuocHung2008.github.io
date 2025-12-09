@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Tech - Công Nghệ Cho Thú Cưng Yêu Dấu</title>
+    <title>Luna Fashion - Thời Trang Nữ Nhẹ Nhàng</title>
     <style>
         * {
             margin: 0;
@@ -11,231 +11,193 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Quicksand', 'Arial Rounded MT Bold', sans-serif;
-            background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 50%, #ffd6cc 100%);
-            color: #5d3a29;
+            font-family: 'Quicksand', 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #fff5f8 0%, #ffe8f0 100%);
+            color: #5a3e4a;
+            line-height: 1.6;
         }
         header {
-            background: linear-gradient(135deg, #ffb88c 0%, #ff9a76 50%, #ff8a65 100%);
-            padding: 70px 20px;
+            background: linear-gradient(135deg, #ffc4d6 0%, #ffb3c9 100%);
+            padding: 50px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 8px solid #ff7043;
-        }
-        header::before {
-            content: '🐾';
-            position: absolute;
-            font-size: 200px;
-            opacity: 0.1;
-            top: -50px;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
-        header::after {
-            content: '🐾';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.1;
-            bottom: -30px;
-            right: 15%;
-            animation: float 5s ease-in-out infinite reverse;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            border-bottom: 4px solid #ff8fab;
         }
         .header-content {
-            position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
         }
         h1 {
             color: white;
-            font-size: clamp(2em, 5vw, 4em);
-            text-shadow: 4px 4px 0px rgba(93, 58, 41, 0.3);
-            margin-bottom: 15px;
-            font-weight: 800;
+            font-size: clamp(2.2em, 5vw, 3.5em);
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         .tagline {
             color: white;
-            font-size: clamp(1em, 2.5vw, 1.4em);
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            font-weight: 600;
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            margin-bottom: 25px;
+            font-weight: 500;
         }
         .intro {
             background: white;
-            border-radius: 25px;
-            padding: 35px;
-            max-width: 850px;
-            margin: 30px auto 0;
-            box-shadow: 0 8px 30px rgba(255, 122, 67, 0.3);
-            border: 4px solid #ffccbc;
-        }
-        .intro h3 {
-            color: #ff7043;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 800px;
+            margin: 20px auto 0;
+            box-shadow: 0 4px 15px rgba(255, 143, 171, 0.2);
+            border: 2px solid #ffd4e0;
         }
         .intro p {
-            color: #6d4c41;
-            line-height: 1.9;
-            font-size: 1.05em;
+            color: #6d5560;
+            line-height: 1.8;
+            font-size: 1em;
         }
         .container {
-            max-width: 1400px;
-            margin: 60px auto;
+            max-width: 1300px;
+            margin: 45px auto;
             padding: 0 20px;
         }
         .section-title {
             text-align: center;
-            font-size: clamp(2em, 4vw, 2.8em);
-            color: #ff7043;
-            margin-bottom: 50px;
-            font-weight: 800;
+            font-size: clamp(1.8em, 4vw, 2.3em);
+            color: #ff8fab;
+            margin-bottom: 35px;
+            font-weight: 700;
         }
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 28px;
         }
         .product {
             background: white;
-            border-radius: 30px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 10px 35px rgba(255, 122, 67, 0.25);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 5px solid #ffccbc;
-            position: relative;
+            box-shadow: 0 4px 18px rgba(255, 143, 171, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #ffd4e0;
         }
         .product:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 15px 50px rgba(255, 122, 67, 0.4);
-            border-color: #ff8a65;
-        }
-        .product:nth-child(even):hover {
-            transform: scale(1.05) rotate(-2deg);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 143, 171, 0.25);
         }
         .product-img {
             width: 100%;
-            height: 280px;
+            height: 320px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            background: #fff9fb;
         }
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-        .product:hover .product-img img {
-            transform: scale(1.15) rotate(2deg);
         }
         .tag {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: linear-gradient(135deg, #ff7043 0%, #ff5722 100%);
+            top: 12px;
+            left: 12px;
+            background: #ff8fab;
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.85em;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.8em;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
-            z-index: 1;
         }
-        .paw-icon {
+        .discount {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
-            font-size: 50px;
-            opacity: 0.2;
-        }
-        .product-info {
-            padding: 30px;
-        }
-        .product h3 {
-            color: #ff6f3c;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            top: 12px;
+            right: 12px;
+            background: #ff5983;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            font-size: 0.85em;
             font-weight: 800;
         }
+        .product-info {
+            padding: 22px;
+        }
+        .product h3 {
+            color: #d47491;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
         .product p {
-            color: #6d4c41;
-            line-height: 1.9;
-            margin-bottom: 18px;
+            color: #8a7580;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 0.95em;
         }
         .features {
-            background: #fff8f5;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid #ff8a65;
+            background: #fff5f8;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border-left: 3px solid #ffb3c9;
         }
         .features li {
-            color: #8d6e63;
-            padding: 6px 0;
-            padding-left: 25px;
+            color: #9a7888;
+            padding: 5px 0;
+            padding-left: 20px;
             position: relative;
-            font-size: 0.95em;
+            font-size: 0.88em;
             list-style: none;
         }
         .features li::before {
-            content: '❤️';
+            content: '♥';
             position: absolute;
             left: 0;
+            color: #ff8fab;
             font-size: 14px;
         }
         .price-section {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            border-top: 3px dashed #ffccbc;
+            padding-top: 15px;
+            border-top: 2px solid #ffd4e0;
+        }
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .price-old {
+            color: #b89aa8;
+            font-size: 0.9em;
+            text-decoration: line-through;
         }
         .price {
-            color: #ff7043;
-            font-size: 2em;
+            color: #ff5983;
+            font-size: 1.6em;
             font-weight: 900;
         }
         .buy-btn {
-            background: linear-gradient(135deg, #ff9a76 0%, #ff7043 100%);
+            background: linear-gradient(135deg, #ff8fab 0%, #ff6b96 100%);
             color: white;
-            padding: 14px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
+            padding: 10px 18px;
+            border-radius: 18px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 122, 67, 0.4);
-            font-size: 1em;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95em;
         }
         .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 122, 67, 0.5);
+            background: linear-gradient(135deg, #ff6b96 0%, #ff5983 100%);
+            transform: scale(1.05);
         }
         @media (max-width: 768px) {
-            header {
-                padding: 50px 20px;
-            }
             .intro {
-                padding: 25px;
-            }
-            .products {
-                gap: 25px;
+                padding: 18px;
             }
             .product-img {
-                height: 220px;
+                height: 280px;
             }
             .product-info {
-                padding: 20px;
-            }
-            .price {
-                font-size: 1.6em;
+                padding: 18px;
             }
         }
     </style>
@@ -243,154 +205,115 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>🐾 PET TECH PARADISE 🐾</h1>
-            <p class="tagline">Công nghệ hiện đại - Tình yêu trọn vẹn cho thú cưng</p>
+            <h1>✨ Khánh Vy Fashion ✨</h1>
+            <p class="tagline">Thời trang nữ nhẹ nhàng - Tự tin tỏa sáng mỗi ngày</p>
             <div class="intro">
-                <h3>🎯 Vì Sao Chọn Pet Tech?</h3>
-                <p>Bạn yêu thương bé cưng nhưng cuộc sống bận rộn? Chúng tôi hiểu! Các sản phẩm công nghệ thông minh giúp bạn chăm sóc thú cưng tốt nhất ngay cả khi không ở nhà. Camera theo dõi, cho ăn tự động, GPS định vị - tất cả để bạn luôn kết nối với người bạn bốn chân. Hơn 50.000 khách hàng đã tin tưởng!</p>
+                <p>Khám phá bộ sưu tập thời trang nữ với thiết kế nhẹ nhàng, nữ tính và hiện đại. Từ váy dự tiệc sang trọng đến áo sơ mi công sở thanh lịch, chúng tôi mang đến những outfit hoàn hảo cho mọi khoảnh khắc. Chất liệu cao cấp, giá cả hợp lý, phong cách Hàn Quốc đáng yêu.</p>
             </div>
         </div>
     </header>
     
     <div class="container">
-        <h2 class="section-title">🌟 Sản Phẩm Thông Minh Nhất</h2>
+        <h2 class="section-title">💕 Bộ Sưu Tập Mới Nhất</h2>
         <div class="products">
             <div class="product">
                 <div class="product-img">
-                    <img src="https://cdn2.fptshop.com.vn/unsafe/564x0/filters:quality(80)/Uploads/images/2015/Tin-Tuc/Dung/0118/06-may-cho-thu-cung-an-tu-dong-co-camera-petoneer-pf002-01.jpg" alt="Máy cho ăn tự động">
-                    <span class="tag">⭐ Best Seller</span>
-                    <span class="paw-icon">🐾</span>
+                    <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&q=80" alt="Áo sơ mi trắng">
+                    <span class="tag">New Arrival</span>
                 </div>
                 <div class="product-info">
-                    <h3>Máy Cho Ăn Tự Động Camera HD</h3>
-                    <p>Máy cho ăn thông minh với camera 1080p, gọi video 2 chiều, ghi âm giọng nói. Điều khiển từ xa qua app, lên lịch tự động 6 bữa/ngày. Ngăn thức ăn chống ẩm 5 lít.</p>
+                    <h3>Áo Sơ Mi Trắng Công Sở</h3>
+                    <p>Áo sơ mi trắng basic dáng suông thanh lịch, cổ tròn nhẹ nhàng. Phối cùng quần âu, chân váy đều đẹp. Thiết kế tối giản, sang trọng.</p>
                     <div class="features">
                         <ul>
-                            <li>Camera xoay 360°, tầm nhìn ban đêm</li>
-                            <li>Ghi âm giọng của bạn gọi bé ăn</li>
-                            <li>Pin dự phòng, không lo mất điện</li>
+                            <li>Chất liệu: Cotton pha linen cao cấp</li>
+                            <li>Không nhăn, không xù lông</li>
+                            <li>Dễ phối đồ, phù hợp môi trường công sở</li>
                         </ul>
                     </div>
                     <div class="price-section">
-                        <div class="price">1.990.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
+                        <div class="price-box">
+                            <span class="price">385.000đ</span>
+                        </div>
+                        <button class="buy-btn">Thêm Vào Giỏ</button>
                     </div>
                 </div>
             </div>
             
             <div class="product">
                 <div class="product-img">
-                    <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/458/454/products/1-jpeg-1728987448811.jpg?v=1728987496260" alt="Ba lô phi hành gia">
-                    <span class="tag">🚀 Trendy</span>
-                    <span class="paw-icon">🐾</span>
+                    <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80" alt="Áo len cardigan">
+                    <span class="tag">Hot Deal</span>
                 </div>
                 <div class="product-info">
-                    <h3>Ba Lô Vận Chuyển Phi Hành Gia</h3>
-                    <p>Ba lô thú cưng thiết kế cửa sổ trong suốt như khoang vũ trụ, 9 lỗ thoáng khí 360°. Đệm lưng thoải mái, đai vai chắc chắn. Phù hợp chó mèo dưới 7kg, đi máy bay được.</p>
+                    <h3>Áo Len Cardigan Pastel</h3>
+                    <p>Áo khoác len cardigan mỏng nhẹ, phối nút xinh xắn. Màu pastel dễ thương, ấm áp vừa phải, phù hợp xuân - thu. Phối cùng váy, quần đều đẹp.</p>
                     <div class="features">
                         <ul>
-                            <li>Chất liệu PC trong suốt siêu bền</li>
-                            <li>Đệm êm ái, có túi đựng đồ ăn</li>
-                            <li>Thiết kế đạt chuẩn an toàn quốc tế</li>
+                            <li>Chất liệu: Len acrylic mềm mại, không xù</li>
+                            <li>Giữ ấm tốt, thoáng mát</li>
+                            <li>Màu: Hồng baby, Xanh mint, Be sữa</li>
                         </ul>
                     </div>
                     <div class="price-section">
-                        <div class="price">699.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product">
-                <div class="product-img">
-                    <img src="https://image.made-in-china.com/318f0j00CaFRZEMhbPqc/Y33-mp4.webp" alt="Vòng cổ GPS">
-                    <span class="tag">📍 Smart GPS</span>
-                    <span class="paw-icon">🐾</span>
-                </div>
-                <div class="product-info">
-                    <h3>Vòng Cổ Định Vị GPS Thông Minh</h3>
-                    <p>Thiết bị định vị GPS + LBS chính xác 5m, theo dõi thời gian thực. Cảnh báo khi bé ra khỏi vùng an toàn. Pin 7 ngày, sạc không dây tiện lợi, chống nước IP68.</p>
-                    <div class="features">
-                        <ul>
-                            <li>Lịch sử di chuyển 90 ngày</li>
-                            <li>Cảnh báo qua app khi tháo vòng</li>
-                            <li>Nhỏ gọn 30g, không gây khó chịu</li>
-                        </ul>
-                    </div>
-                    <div class="price-section">
-                        <div class="price">1.490.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product">
-                <div class="product-img">
-                    <img src="https://metapets.vn/wp-content/uploads/2025/05/may-loc-nuoc-cho-thu-cung-metapet-2-8l-4.jpg" alt="Đài nước tự động">
-                    <span class="tag">💧 Fresh Water</span>
-                    <span class="paw-icon">🐾</span>
-                </div>
-                <div class="product-info">
-                    <h3>Đài Phun Nước Uống Tự Động</h3>
-                    <p>Máy lọc nước thông minh với 3 chế độ phun. Nước tuần hoàn, luôn tươi mới, khuyến khích thú cưng uống nhiều nước. Động cơ siêu êm dưới 30dB, đèn LED ban đêm.</p>
-                    <div class="features">
-                        <ul>
-                            <li>Dung tích 2.5L, 2 bộ lọc than hoạt tính</li>
-                            <li>Tự động ngắt khi hết nước</li>
-                            <li>Dễ tháo lắp, vệ sinh đơn giản</li>
-                        </ul>
-                    </div>
-                    <div class="price-section">
-                        <div class="price">559.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
+                        <div class="price-box">
+                            <span class="price">425.000đ</span>
+                        </div>
+                        <button class="buy-btn">Thêm Vào Giỏ</button>
                     </div>
                 </div>
             </div>
 
             <div class="product">
                 <div class="product-img">
-                    <img src="https://product.hstatic.net/1000259297/product/suplo-04a-1_master.jpg" alt="Giường thú cưng">
-                    <span class="paw-icon">🐾</span>
+                    <img src="https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=800&q=80" alt="Áo thun oversize">
+                    <span class="tag">Comfortable</span>
                 </div>
                 <div class="product-info">
-                    <h3>Giường Nệm Êm Ái Cao Cấp</h3>
-                    <p>Giường ngủ siêu mềm, vải nhung cao cấp, ruột bông PP cotton đàn hồi. Thiết kế ôm trọn cơ thể, giúp thú cưng ngủ ngon, giảm lo âu. Có thể giặt máy.</p>
+                    <h3>Áo Thun Oversize Basic</h3>
+                    <p>Áo thun form rộng thoải mái, chất cotton 100% mềm mịn. Thiết kế basic đa năng, phối với quần jean, váy đều xinh. Có nhiều màu sắc.</p>
                     <div class="features">
                         <ul>
-                            <li>3 kích cỡ: S(50cm), M(60cm), L(70cm)</li>
-                            <li>Đế chống trượt, không di chuyển</li>
-                            <li>Màu sắc trung tính, phù hợp mọi nội thất</li>
+                            <li>Cotton 100% thấm hút mồ hôi tốt</li>
+                            <li>Form rộng che bụng, thoải mái</li>
+                            <li>Màu: Trắng, Đen, Xanh, Hồng, Be</li>
                         </ul>
                     </div>
                     <div class="price-section">
-                        <div class="price">399.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
+                        <div class="price-box">
+                            <span class="price">185.000đ</span>
+                        </div>
+                        <button class="buy-btn">Thêm Vào Giỏ</button>
                     </div>
                 </div>
             </div>
 
             <div class="product">
                 <div class="product-img">
-                    <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/a/may-chai-hut-va-say-long-thu-cung-oneisall-bm1.png" alt="Máy sấy lông">
-                    <span class="tag">🔥 Hot Deal</span>
-                    <span class="paw-icon">🐾</span>
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80" alt="Quần jean">
+                    <span class="tag">Must Have</span>
+                    <span class="discount">-15%</span>
                 </div>
                 <div class="product-info">
-                    <h3>Máy Sấy & Chải Lông 2 in 1</h3>
-                    <p>Máy sấy lông công suất 2400W với đầu thổi kép, nhiệt độ điều chỉnh 3 cấp. Kèm 4 đầu chải khác nhau cho mọi loại lông. Giảm 80% thời gian sấy, giảm stress cho bé.</p>
+                    <h3>Quần Jean Ống Suông Lưng Cao</h3>
+                    <p>Quần jean nữ lưng cao ống suông, màu xanh nhạt trẻ trung. Co giãn nhẹ, thoải mái vận động. Tôn dáng, kéo dài chân. Item không thể thiếu.</p>
                     <div class="features">
                         <ul>
-                            <li>Âm thanh êm dưới 50dB</li>
-                            <li>Dây dài 2.5m, xoay 360°</li>
-                            <li>Chống quá nhiệt, tự động ngắt an toàn</li>
+                            <li>Chất jean cao cấp, co giãn 2%</li>
+                            <li>Không phai màu, giặt bền đẹp</li>
+                            <li>Lưng cao che bụng, tôn eo</li>
                         </ul>
                     </div>
                     <div class="price-section">
-                        <div class="price">1.290.000đ</div>
-                        <button class="buy-btn">Mua Ngay</button>
+                        <div class="price-box">
+                            <span class="price-old">520.000đ</span>
+                            <span class="price">442.000đ</span>
+                        </div>
+                        <button class="buy-btn">Thêm Vào Giỏ</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>
