@@ -67,8 +67,8 @@
         }
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 35px;
         }
         .product {
             background: white;
@@ -84,7 +84,7 @@
         }
         .product-img {
             width: 100%;
-            height: 320px;
+            height: 350px;
             overflow: hidden;
             position: relative;
             background: #fff9fb;
@@ -117,25 +117,25 @@
             font-weight: 800;
         }
         .product-info {
-            padding: 22px;
+            padding: 25px;
         }
         .product h3 {
             color: #d47491;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-size: 1.3em;
             font-weight: 700;
         }
         .product p {
             color: #8a7580;
             line-height: 1.7;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 0.95em;
         }
         .features {
             background: #fff5f8;
             border-radius: 10px;
             padding: 12px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             border-left: 3px solid #ffb3c9;
         }
         .features li {
@@ -155,14 +155,15 @@
         }
         .price-section {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 18px;
             border-top: 2px solid #ffd4e0;
         }
         .price-box {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         .price-old {
             color: #b89aa8;
@@ -171,33 +172,94 @@
         }
         .price {
             color: #ff5983;
-            font-size: 1.6em;
+            font-size: 1.8em;
             font-weight: 900;
         }
         .buy-btn {
             background: linear-gradient(135deg, #ff8fab 0%, #ff6b96 100%);
             color: white;
-            padding: 10px 18px;
-            border-radius: 18px;
+            padding: 15px 20px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             font-weight: 700;
             transition: all 0.3s;
-            font-size: 0.95em;
+            font-size: 1.05em;
+            width: 100%;
         }
         .buy-btn:hover {
             background: linear-gradient(135deg, #ff6b96 0%, #ff5983 100%);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 89, 131, 0.3);
         }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 40px;
+            border: 3px solid #ff8fab;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(255, 143, 171, 0.4);
+        }
+        .modal-content h2 {
+            color: #ff5983;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .modal-content p {
+            color: #6d5560;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .zalo-number {
+            background: linear-gradient(135deg, #ffb3c9 0%, #ff8fab 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.8em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+        .close {
+            color: #ff8fab;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+        .close:hover {
+            color: #ff5983;
+        }
+        
         @media (max-width: 768px) {
             .intro {
                 padding: 18px;
             }
             .product-img {
-                height: 280px;
+                height: 300px;
             }
             .product-info {
-                padding: 18px;
+                padding: 20px;
+            }
+            .modal-content {
+                margin: 30% auto;
+                padding: 25px;
             }
         }
     </style>
@@ -218,7 +280,7 @@
         <div class="products">
             <div class="product">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&q=80" alt="Áo sơ mi trắng">
+                    <img src="https://product.hstatic.net/1000102419/product/wsl021white_7d7824e475de4bcb822f7f720be36b89_master.jpg" alt="Áo sơ mi trắng">
                     <span class="tag">New Arrival</span>
                 </div>
                 <div class="product-info">
@@ -235,14 +297,14 @@
                         <div class="price-box">
                             <span class="price">385.000đ</span>
                         </div>
-                        <button class="buy-btn">Thêm Vào Giỏ</button>
+                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
                     </div>
                 </div>
             </div>
             
             <div class="product">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?w=800&q=80" alt="Áo len cardigan">
+                    <img src="https://i.pinimg.com/736x/ac/4b/4e/ac4b4e0ce777774504aca39a0b683fd6.jpg" alt="Áo len cardigan">
                     <span class="tag">Hot Deal</span>
                 </div>
                 <div class="product-info">
@@ -259,38 +321,14 @@
                         <div class="price-box">
                             <span class="price">425.000đ</span>
                         </div>
-                        <button class="buy-btn">Thêm Vào Giỏ</button>
+                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
                     </div>
                 </div>
             </div>
 
             <div class="product">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=800&q=80" alt="Áo thun oversize">
-                    <span class="tag">Comfortable</span>
-                </div>
-                <div class="product-info">
-                    <h3>Áo Thun Oversize Basic</h3>
-                    <p>Áo thun form rộng thoải mái, chất cotton 100% mềm mịn. Thiết kế basic đa năng, phối với quần jean, váy đều xinh. Có nhiều màu sắc.</p>
-                    <div class="features">
-                        <ul>
-                            <li>Cotton 100% thấm hút mồ hôi tốt</li>
-                            <li>Form rộng che bụng, thoải mái</li>
-                            <li>Màu: Trắng, Đen, Xanh, Hồng, Be</li>
-                        </ul>
-                    </div>
-                    <div class="price-section">
-                        <div class="price-box">
-                            <span class="price">185.000đ</span>
-                        </div>
-                        <button class="buy-btn">Thêm Vào Giỏ</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80" alt="Quần jean">
+                    <img src="https://static.oreka.vn/800-800_e9353fe5-40a1-46e6-b617-08bfc754afe3" alt="Quần jean">
                     <span class="tag">Must Have</span>
                     <span class="discount">-15%</span>
                 </div>
@@ -309,12 +347,38 @@
                             <span class="price-old">520.000đ</span>
                             <span class="price">442.000đ</span>
                         </div>
-                        <button class="buy-btn">Thêm Vào Giỏ</button>
+                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>📞 Liên Hệ Đặt Hàng</h2>
+            <p>Vui lòng liên hệ với chúng tôi qua Zalo để đặt hàng và tư vấn chi tiết:</p>
+            <div class="zalo-number">0123 456 789</div>
+            <p style="font-size: 0.95em; color: #8a7580;">Chúng tôi sẽ tư vấn và báo giá chi tiết cho bạn!</p>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            var modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
