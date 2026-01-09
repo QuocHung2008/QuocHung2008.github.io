@@ -212,11 +212,13 @@
             font-weight: 700;
             transition: all 0.3s;
             border: 2px solid #ffd700;
-            cursor: pointer;
             font-size: 1.1em;
             letter-spacing: 1px;
             box-shadow: 0 5px 20px rgba(139, 10, 80, 0.4);
             width: 100%;
+            text-align: center;
+            text-decoration: none;
+            display: block;
         }
         .buy-btn:hover {
             transform: translateY(-3px);
@@ -224,7 +226,7 @@
             background: linear-gradient(135deg, #a01060 0%, #5a1e5e 100%);
         }
         
-        .modal {
+        .modal-overlay {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -233,6 +235,9 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-overlay:target {
+            display: block;
         }
         .modal-content {
             background: linear-gradient(145deg, #2a2a3e 0%, #1f1f2e 100%);
@@ -244,6 +249,7 @@
             max-width: 500px;
             text-align: center;
             box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+            position: relative;
         }
         .modal-content h2 {
             color: #ffd700;
@@ -268,10 +274,12 @@
         }
         .close {
             color: #ffd700;
-            float: right;
+            position: absolute;
+            top: 15px;
+            right: 25px;
             font-size: 35px;
             font-weight: bold;
-            cursor: pointer;
+            text-decoration: none;
             line-height: 20px;
         }
         .close:hover {
@@ -333,7 +341,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Đèn Ngủ 3D Khắc Chân Dung</h3>
-                    <p>Công nghệ in 3D tiên tiến kết hợp khắc laser, biến ảnh chân dung thành tác phẩm nghệ thuật phát sáng. Ánh sáng LED ấm áp, 16 màu thay đổi qua remote. Món quà độc nhất cho người đặc biệt.</p>
+                    <p>Công nghệ in 3D tiên tiến kết hợp khắc laser, biến ảnh chân dung thành tác phẩm nghệ thuật phát sáng. Ánh sáng LED ấm áp, 16 màu thay đổi qua remote.</p>
                     <div class="special">✨ Miễn phí thiết kế & hiệu chỉnh ảnh chuyên nghiệp</div>
                     <ul class="features">
                         <li>Kính mica cao cấp 8mm, khắc laser sắc nét</li>
@@ -342,7 +350,7 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">499.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
@@ -355,7 +363,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Ví Da Bò Thật Khắc Tên Cao Cấp</h3>
-                    <p>Ví da bò Ý nguyên tấm, thuộc thủ công truyền thống 6 tháng. Khắc laser tên hoặc chữ ký sâu 0.3mm, không phai mờ theo thời gian. Càng dùng càng đẹp, bền 10-15 năm.</p>
+                    <p>Ví da bò Ý nguyên tấm, thuộc thủ công truyền thống 6 tháng. Khắc laser tên hoặc chữ ký sâu 0.3mm, không phai mờ theo thời gian.</p>
                     <div class="special">✨ Tặng kèm hộp gỗ quý + bảo dưỡng miễn phí trọn đời</div>
                     <ul class="features">
                         <li>Da bò full grain, vân tự nhiên độc nhất</li>
@@ -364,7 +372,7 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">799.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
@@ -377,7 +385,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Tranh Ghép Hình Puzzle Từ Ảnh</h3>
-                    <p>In UV chất lượng cao trên puzzle gỗ 1000 mảnh. Mỗi mảnh ghép là một khoảnh khắc kỷ niệm. Hoàn thành để có bức tranh treo tường tuyệt đẹp, đính kèm keo dán chuyên dụng.</p>
+                    <p>In UV chất lượng cao trên puzzle gỗ 1000 mảnh. Mỗi mảnh ghép là một khoảnh khắc kỷ niệm.</p>
                     <div class="special">✨ Tặng khung tranh gỗ sồi + chứng nhận in hình</div>
                     <ul class="features">
                         <li>Gỗ MDF cao cấp 3mm, cắt chính xác</li>
@@ -386,7 +394,7 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">389.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
@@ -399,7 +407,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Vòng Cổ Bạc 925</h3>
-                    <p>Vòng cổ bạc 925 được chế tác từ bạc chuẩn 92.5%, sáng bóng, bền màu và an toàn cho da. Thiết kế thanh lịch, tôn lên vẻ đẹp tinh tế cho người đeo, phù hợp mọi dịp từ đi làm, đi chơi đến sự kiện.</p>
+                    <p>Vòng cổ bạc 925 được chế tác từ bạc chuẩn 92.5%, sáng bóng, bền màu và an toàn cho da.</p>
                     <div class="special">✨ Bảo hành vĩnh viễn + đánh bóng miễn phí trọn đời</div>
                     <ul class="features">
                         <li>Mặt tròn 2cm, dây 45cm điều chỉnh</li>
@@ -408,7 +416,7 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">899.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
@@ -420,7 +428,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Móc Khóa Da Bò</h3>
-                    <p>Móc khóa da bò cao cấp được làm từ da bò thật 100%, mang lại cảm giác mềm mại, chắc chắn và độ bền vượt trội theo thời gian. Thiết kế tối giản nhưng tinh tế, phù hợp cho cả nam và nữ, dễ dàng kết hợp với nhiều phong cách khác nhau.</p>
+                    <p>Móc khóa da bò cao cấp được làm từ da bò thật 100%, mang lại cảm giác mềm mại, chắc chắn và độ bền vượt trội.</p>
                     <div class="special">✨ Tặng kèm bản đồ mini địa điểm + thiệp giải thích</div>
                     <ul class="features">
                         <li>Da bò Ý Crazy Horse, chống nước tốt</li>
@@ -429,7 +437,7 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">249.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
@@ -442,7 +450,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Nhẫn Titanium Khắc Chữ</h3>
-                    <p>Nhẫn titan y tế, siêu nhẹ, không gây dị ứng, bền vĩnh viễn. Khắc chữ ký tay viết của người thân yêu bên trong hoặc bên ngoài. Món quà cực kỳ cá nhân và đầy cảm xúc.</p>
+                    <p>Nhẫn titan y tế, siêu nhẹ, không gây dị ứng, bền vĩnh viễn. Khắc chữ ký tay viết của người thân yêu.</p>
                     <div class="special">✨ Miễn phí đo size tại nhà + đổi size trong 30 ngày</div>
                     <ul class="features">
                         <li>Titan grade 5, chống trầy xước tối đa</li>
@@ -451,38 +459,21 @@
                     </ul>
                     <div class="price-section">
                         <div class="price">699.000đ</div>
-                        <button class="buy-btn" onclick="showModal()">Đặt Hàng Ngay</button>
+                        <a href="#contactModal" class="buy-btn">Đặt Hàng Ngay</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal-overlay">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <a href="#" class="close">&times;</a>
             <h2>📞 Liên Hệ Đặt Hàng</h2>
             <p>Vui lòng liên hệ với chúng tôi qua Zalo để đặt hàng và tư vấn chi tiết:</p>
-            <div class="zalo-number">0123 456 789</div>
-            <p style="font-size: 0.95em; color: #b8b8c8;">Chúng tôi sẽ tư vấn và báo giá chi tiết cho bạn!</p>
+            <div class="zalo-number">0388243853</div>
+            <p style="font-size: 0.95em; color: #b8b8c8;">Zalo - Nguyễn Hữu Lợi</p>
         </div>
     </div>
-
-    <script>
-        function showModal() {
-            document.getElementById('contactModal').style.display = 'block';
-        }
-        
-        function closeModal() {
-            document.getElementById('contactModal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            var modal = document.getElementById('contactModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
